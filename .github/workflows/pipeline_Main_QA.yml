@@ -1,0 +1,30 @@
+# .github/workflows/qa-main-workflow.yml
+name: QA and MAIN Workflows
+
+on:
+  push:
+    branches:
+      - QA
+      - MAIN
+
+jobs:
+  qa:
+    if: github.ref == 'refs/heads/QA'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo "Usando a Branch QA"
+
+  main:
+    if: github.ref == 'refs/heads/MAIN'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: |
+          "Usando a Branch Main"
+          "EU AMO DEVOPS!"
+        
